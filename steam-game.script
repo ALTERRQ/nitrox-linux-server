@@ -1,0 +1,9 @@
+// Installs, updates and validates Subnautica
+//
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+@sSteamCmdForcePlatformType windows
+force_install_dir /var/lib/sotf-server/game
+steamcmd +login <username> <password>
+app_update 264710 validate
+quit
