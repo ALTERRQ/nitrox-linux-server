@@ -13,7 +13,7 @@ ENDCOLOR="\e[0m"
 HOME_DIR=/var/lib/nitrox-server
 USER="nitrox-server"
 GROUP="nitrox-server"
-DEPLIST="wget tar"
+DEPLIST="wget tar unzip"
 LOG_FILE="./installer.log"
 SAVED_LOG_FILE="$HOME_DIR/installer.log"
 GAME_DIR="$HOME_DIR/game"
@@ -126,7 +126,9 @@ success_msg "Installed SteamCMD successfully"
 # Install Nitrox Server
 info_msg "Installing Nitrox Server"
 mkdir $HOME_DIR/nitrox
-wget -qO- 'https://github.com/SubnauticaNitrox/Nitrox/releases/latest' | tar zxf - -C $HOME_DIR/nitrox || error_exit "Failed to download Nitrox Server to $HOME_DIR"
+wget -qO /tmp/nitrox.zip 'https://.../Nitrox_1.8.1.0_linux_x64.zip' \
+  && unzip -q /tmp/nitrox.zip -d $HOME_DIR/nitrox \
+  && rm /tmp/nitrox.zip
 success_msg "Installed Nitrox Server successfully"
 
 # (Re)install nitrox-server.service
