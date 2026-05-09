@@ -11,7 +11,6 @@ ENDCOLOR="\e[0m"
 HOME_DIR=/var/lib/nitrox-server
 GAME_DIR="$HOME_DIR/game"
 STEAMCMD="$HOME_DIR/steamcmd/steamcmd.sh"
-LOG_FILE="$HOME_DIR/nitrox-server.log"
 export SUBNAUTICA_INSTALLATION_PATH="$GAME_DIR"
 
 # Function for consistent error messages
@@ -25,4 +24,4 @@ info_msg "Starting server..."
 cd "$HOME_DIR/nitrox" || error_exit "Failed to cd to $HOME_DIR/nitrox"
 
 # Start the game server
-"$HOME_DIR/nitrox/Nitrox.Server.Subnautica" > "$LOG_FILE" 2>&1 || error_exit "Failed to start Nitrox server"
+"$HOME_DIR/nitrox/Nitrox.Server.Subnautica" || error_exit "Failed to start Nitrox server"
