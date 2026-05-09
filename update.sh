@@ -35,14 +35,6 @@ echo ""
 read -rp  "  Steam username: "                    STEAM_USER
 read -rsp "  Steam password: "                    STEAM_PASS
 echo ""
-read -rp  "  Steam Guard code (blank if none): "  STEAM_GUARD
-echo ""
-
-# Build optional Steam Guard argument
-GUARD_ARG=()
-if [[ -n "$STEAM_GUARD" ]]; then
-    GUARD_ARG=(+set_steam_guard_code "$STEAM_GUARD")
-fi
 
 # Stop the server if it's running
 if systemctl is-active --quiet nitrox-server; then
@@ -53,9 +45,9 @@ fi
 # Run install/update
 info_msg "Installing / Updating / Validating Subnautica..."
 bash "$STEAMCMD" \
-    +login "$STEAM_USER" "$STEAM_PASS" "${GUARD_ARG[@]}" \
     +force_install_dir "$GAME_DIR" \
-    +app_update 264710 validate \
+    +login "$STEAM_USER" "$STEAM_PASS" \
+    +app_update 264712 validate \
     +quit || error_exit "Failed to install / update Subnautica"
 success_msg "Subnautica updated successfully"
 
