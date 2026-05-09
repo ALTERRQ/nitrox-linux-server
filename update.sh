@@ -55,8 +55,8 @@ success_msg "Subnautica updated successfully"
 if [[ "$1" == "install" ]]; then
     info_msg "Installing Nitrox Server"
     mkdir $HOME_DIR/nitrox
-    wget -qO /tmp/nitrox.zip 'https://.../Nitrox_1.8.1.0_linux_x64.zip' \
-        && unzip -q /tmp/nitrox.zip -d $HOME_DIR/nitrox \
+    wget -O /tmp/nitrox.zip 'https://github.com/SubnauticaNitrox/Nitrox/releases/download/1.8.1.0/Nitrox_1.8.1.0_linux_x64.zip' \
+        && unzip /tmp/nitrox.zip -d $HOME_DIR/nitrox \
         && rm /tmp/nitrox.zip
     success_msg "Installed Nitrox Server successfully"
 fi
