@@ -145,7 +145,10 @@ success_msg "Installed nitrox-server.service successfully"
 
 # Install Subnautica
 info_msg "Installing Subnautica"
-bash $STEAMCMD +runscript "$HOME_DIR/steam-game.script" || error_exit "Failed to install Subnautica"
+bash $STEAMCMD +login <username> <password> +set_steam_guard_code <CODE> \
+    +force_install_dir $GAME_DIR \
+    +app_update 264710 validate \
+    +quit
 success_msg "Installed Subnautica successfully"
 
 # Own $HOME_DIR and change its permissions
