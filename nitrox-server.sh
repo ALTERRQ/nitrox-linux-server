@@ -9,8 +9,10 @@ ENDCOLOR="\e[0m"
 
 # Define some variables
 HOME_DIR=/var/lib/nitrox-server
+GAME_DIR="$HOME_DIR/game"
 STEAMCMD="$HOME_DIR/steamcmd/steamcmd.sh"
 LOG_FILE="$HOME_DIR/nitrox-server.log"
+export SUBNAUTICA_INSTALLATION_PATH="$GAME_DIR"
 
 # Function for consistent error messages
 error_exit() { echo -e "${RED}[ERROR] $1${ENDCOLOR}"; exit 1; }
