@@ -47,7 +47,7 @@ info_msg "Installing / Updating / Validating Subnautica..."
 bash "$STEAMCMD" \
     +force_install_dir "$GAME_DIR" \
     +login "$STEAM_USER" "$STEAM_PASS" \
-    +app_update 264712 validate \
+    +app_update 264710 validate \
     +quit || error_exit "Failed to install / update Subnautica"
 success_msg "Subnautica updated successfully"
 
