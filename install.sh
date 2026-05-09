@@ -84,6 +84,10 @@ info_msg "Checking dependencies"
 if missing=$(check_dependencies); then
     info_msg "All dependencies are already installed."
 else
+    info_msg "Adding i368 architecture"
+    dpkg --add-architecture i386 || error_exit "Failed to add i368 architecture"
+    success_msg "i368 architecture installed successfully."
+    
     info_msg "Installing missing packages: $missing"
     apt update || error_exit "Failed to apt update"
 
