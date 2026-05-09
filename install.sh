@@ -11,7 +11,7 @@ ENDCOLOR="\e[0m"
 HOME_DIR=/var/lib/nitrox-server
 USER="nitrox-server"
 GROUP="nitrox-server"
-DEPLIST="wget tar unzip lib32gcc-s1"
+DEPLIST="wget tar unzip lib32gcc-s1 dotnet-sdk-9.0"
 LOG_FILE="./installer.log"
 SAVED_LOG_FILE="$HOME_DIR/installer.log"
 GAME_DIR="$HOME_DIR/game"
@@ -70,6 +70,12 @@ else
     info_msg "Adding i368 architecture"
     dpkg --add-architecture i386 || error_exit "Failed to add i368 architecture"
     success_msg "i368 architecture installed successfully."
+
+    info_msg "Adding Microsoft package repository"
+    wget https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb -O packages-microsoft-prod.deb || error_exit "Failed to download Microsoft package repository"
+    dpkg -i packages-microsoft-prod.deb || error_exit "Failed to install Microsoft package repository"
+    rm packages-microsoft-prod.deb || error_exit "Failed to remove Microsoft package repository installer"
+    success_msg "Microsoft package repository added successfully."
     
     info_msg "Installing missing packages: $missing"
     apt update || error_exit "Failed to apt update"
