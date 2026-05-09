@@ -17,6 +17,7 @@ DEPLIST="wget tar"
 LOG_FILE="./installer.log"
 SAVED_LOG_FILE="$HOME_DIR/installer.log"
 GAME_DIR="$HOME_DIR/game"
+STEAMCMD="$HOME_DIR/steamcmd/steamcmd.sh"
 
 # Function for consistent error messages
 error_exit() {
