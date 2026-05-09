@@ -1,9 +1,0 @@
-// Installs, updates and validates Subnautica
-//
-@ShutdownOnFailedCommand 1
-@NoPromptForPassword 1
-@sSteamCmdForcePlatformType windows
-force_install_dir /var/lib/nitrox-server/game
-login <username> <password>
-app_update 264710 validate
-quit
