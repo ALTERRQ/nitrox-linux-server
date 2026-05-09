@@ -8,12 +8,7 @@ User=nitrox-server
 Group=nitrox-server
 WorkingDirectory=/var/lib/nitrox-server
 ExecStart=/var/lib/nitrox-server/nitrox-server.sh
-
-TimeoutStopSec=180
-
 Restart=on-failure
-RestartSec=30
-StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
