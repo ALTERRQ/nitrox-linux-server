@@ -112,7 +112,7 @@ success_msg "Installed SteamCMD successfully"
 
 # Install Subnautica and Nitrox server
 info_msg "Calling $HOME_DIR/update.sh"
-bash $HOME_DIR/update.sh install || error_exit "Failed to call $HOME_DIR/update.sh"
+bash $HOME_DIR/update.sh install || error_exit "Failed to call / properly execute $HOME_DIR/update.sh"
 
 # Own $HOME_DIR and change its permissions
 chown -R $USER:$GROUP $HOME_DIR || error_exit "Failed to make nitrox-server own $HOME_DIR"
