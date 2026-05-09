@@ -45,6 +45,7 @@ fi
 # Run install/update
 info_msg "Installing / Updating / Validating Subnautica..."
 bash "$STEAMCMD" \
+    +@sSteamCmdForcePlatformType windows \
     +force_install_dir "$GAME_DIR" \
     +login "$STEAM_USER" "$STEAM_PASS" \
     +app_update 264710 validate \
