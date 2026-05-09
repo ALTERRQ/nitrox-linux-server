@@ -38,4 +38,4 @@ info_msg "Starting server..."
 cd "$HOME_DIR/nitrox" || error_exit "Failed to cd to $HOME_DIR/nitrox"
 
 # Start the game server
-bash "$HOME_DIR/nitrox/Nitrox.Server.Subnautica" > "$LOG_FILE" 2>&1
+"$HOME_DIR/nitrox/Nitrox.Server.Subnautica" > "$LOG_FILE" 2>&1 || error_exit "Failed to start Nitrox server"
